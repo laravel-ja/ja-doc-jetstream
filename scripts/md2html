@@ -1,0 +1,49 @@
+#!/bin/bash
+
+# markdownファイルとレイアウトファイルから、htmlへ変換する
+
+# $1 出力対象のhtml
+# $2 markdownファイル
+# $3 レイアウトファイル
+
+show_usage() {
+    echo "使用法： ${0##*/} 出力HTMLファイルパス Markdownファイル レイアウトファイル"
+}
+
+# 引数個数のチェック
+
+if [ $# -ne 3 ]
+then
+    echo
+    echo "引数の個数が異なります。"
+    echo
+    show_usage
+
+    exit 1
+fi
+
+# 一時ファイル名
+temp_file=`mktemp`
+
+# markdownの前処理
+awk -f scripts/awk/simplify-doc-links.awk "${2}" | \
+sed -f scripts/sed/convert-github-sytle-code.sed | \
+awk -f scripts/awk/remove-style-block.awk | \
+awk -f scripts/awk/remove-space-before-header.awk | \
+# markdown -> html 変換 \
+pandoc -f markdown_phpextra+simple_tables+pipe_tables -t html --no-highlight --quiet | \
+# htmlの後処理 \
+awk -f scripts/awk/devide-anchors.awk  | \
+awk -f scripts/awk/remove-p-from-anchor.awk | \
+awk -f scripts/awk/note-tip-movie.awk > "${temp_file}"
+
+# テンプレートへ変換内容を埋め込む
+awk -f scripts/awk/insert-content.awk -v original_file="${2}" -v converted_file="${temp_file}" "${3}" | \
+# 生成htmlの後処理 \
+awk -f scripts/awk/replace-version -v original_file="${2}" | \
+awk -f scripts/awk/remove-p-on-method-list.awk | \
+awk -f scripts/awk/add-structure-list.awk -v original_file="${1}"> "${1}"
+
+echo "変換：${1}"
+
+rm "${temp_file}"

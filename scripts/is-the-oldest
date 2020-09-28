@@ -1,0 +1,47 @@
+#!/bin/bash
+
+# 更新日付が一番古いことをテスト
+
+show_usage() {
+    echo "使用法： ${0##*/} テスト対象ファイル 比較対象ファイル1 [比較対象ファイル2…]"
+    echo
+    echo "最初の引数のファイルが以降の引数のファイルよりも一番古いことをテストします。"
+    echo "戻り値： 0(一番古い) 1(古くない) 2以上(エラー)"
+}
+
+# 引数個数のチェック
+if [ $# -lt 2 ]
+then
+    echo
+    echo "引数が足りません。"
+    echo
+    show_usage
+
+    exit 2
+fi
+
+# 引数がファイルで存在していることを確認
+for file in "$@"
+do
+    if [ ! -f "${file}" ]
+    then
+        echo ""
+        echo "${file}が存在していません。"
+        exit 3
+    fi
+done
+
+# タイムスタンプの比較
+base="${1}"
+shift
+
+for file in "$@"
+do
+    if [ "${base}" -nt "${file}" ]
+    then
+        exit 1
+    fi
+done
+
+# 一番新しかった
+exit 0

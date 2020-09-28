@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# 引数
+#   $1 : 対象ファイル
+
+# 日本語版のナビ部分を英語に翻訳する
+
+if [ ! -f "${1}" ]
+then
+    exit 0
+fi
+
+sed -i -e '
+s/ナビ/Move/g
+s/移動/Move/g
+s/設定/Setting/g
+s/色/Color/g
+s/閉じる/Close/g
+s/戻る/Back/g
+s/デフォルト/Default/g
+s/表示/Display/g
+s/ホーム/Home/g
+s/セクション/Section/g
+s/バージョン/Version/g
+s/ドキュメント/Document/g
+s/言語/Language/g
+s/検索/Search/g
+s/上部へ/Go Up/g
+' $1
+
+echo "翻訳終了 : ${1}"

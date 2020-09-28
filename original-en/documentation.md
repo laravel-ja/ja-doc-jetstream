@@ -1,0 +1,12 @@
+- ## Getting Started
+    - [Introduction](/docs/{{version}}/introduction)
+    - [Installation](/docs/{{version}}/installation)
+- ## Features
+    - [Authentication](/docs/{{version}}/authentication)
+    - [profile Management](/docs/{{version}}/profile-management)
+    - [Security](/docs/{{version}}/security)
+    - [API](/docs/{{version}}/api)
+    - [Teams](/docs/{{version}}/teams)
+- ## Stacks
+    - [Livewire](/docs/{{version}}/livewire)
+    - [Inertia](/docs/{{version}}/inertia)

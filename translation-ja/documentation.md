@@ -1,0 +1,12 @@
+- ## はじめに
+    - [イントロダクション](/docs/{{version}}/introduction)
+    - [インストール](/docs/{{version}}/installation)
+- ## 機能
+    - [認証](/docs/{{version}}/authentication)
+    - [プロフィール管理](/docs/{{version}}/profile-management)
+    - [セキュリティ](/docs/{{version}}/security)
+    - [API](/docs/{{version}}/api)
+    - [チーム](/docs/{{version}}/teams)
+- ## スタック
+    - [Livewire](/docs/{{version}}/livewire)
+    - [Inertia](/docs/{{version}}/inertia)
