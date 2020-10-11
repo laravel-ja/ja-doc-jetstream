@@ -38,12 +38,11 @@ Fortify::registerView(function () {
 
 ## Actions
 
-As typical of most Jetstream features, the logic executed to satisfy authentication requests can be found in an action class within your application.
+As typical of most Jetstream features, the logic executed to satisfy registration / authentication requests can be found in an action class within your application.
 
+Specifically, the `App\Actions\Fortify\CreateNewUser` class will be invoked when a user updates registers with your application. This action is responsible for validating the input and creating the user.
 
-Specifically, the `App\Actions\Fortify\UpdateUserProfileInformation` class will be invoked when the user updates their profile. This action is responsible for validating the input and updating the user's profile information.
-
-Therefore, any customizations you wish to make to this logic should be made in this class. The action receives the currently authenticated `$user` and an array of `$input` that contains all of the input from the incoming request, including the updated profile photo if applicable.
+Therefore, any customizations you wish to make to user creation logic should be made in this class. The action receives an array of `$input` that contains all of the input from the incoming request.
 
 ### Password Validation Rules
 
@@ -59,6 +58,9 @@ As you may have noticed, the `App\Actions\Fortify\PasswordValidationRules` trait
 
 // Require at least one numeric character...
 (new Password)->requireNumeric()
+
+// Require at least one special character...
+(new Password)->requireSpecialCharacter()
 ```
 
 ## Customizing The Authentication Process
@@ -97,7 +99,7 @@ use Laravel\Fortify\Actions\EnsureLoginIsNotThrottled;
 use Laravel\Fortify\Actions\PrepareAuthenticatedSession;
 use Laravel\Fortify\Actions\RedirectIfTwoFactorAuthenticatable;
 use Laravel\Fortify\Fortify;
-use Illuminate\Http\Request
+use Illuminate\Http\Request;
 
 Fortify::authenticateThrough(function (Request $request) {
     return array_filter([

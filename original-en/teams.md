@@ -10,6 +10,11 @@ If you installed Jetstream using the `teams` option, your application will be sc
 laravel new project-name --jet --teams
 ```
 
+:::warning Jetstream Teams
+
+Jetstream's team scaffolding and opinions may not work for every application. If it doesn't work for your use case, feel free to create a non-team based Jetstream application and add team functionality to your application yourself.
+:::
+
 Jetstream's team features allow each registered user to create and belong to multiple teams. By default, every registered user will belong to a "Personal" team. For example, if a user named "Sally Jones" creates a new account, they will be assigned to a team named `Sally's Team`. After registration, the user may rename this team or create additional teams.
 
 ![Screenshot of Laravel Teams](./../../assets/img/teams.png)
@@ -51,6 +56,12 @@ $user->ownsTeam($team) : bool
 
 // Determine if a user belongs to a given team...
 $user->belongsToTeam($team) : bool
+
+// Get the role that the user is assigned on the team...
+$user->teamRole($team) : \Laravel\Jetstream\Role
+
+// Determine if the user has the given role on the given team...
+$user->hasTeamRole($team, 'admin') : bool
 
 // Access an array of all permissions a user has for a given team...
 $user->teamPermissions($team) : array

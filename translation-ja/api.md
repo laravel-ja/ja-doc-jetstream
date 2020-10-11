@@ -15,6 +15,18 @@ Jetstreamはファーストパーティとして[Laravel Sanctum](https://larave
 Sanctumの詳細とどのようにSanctum認証APIへリクエストを発行するかは、[Sanctumのドキュメント](https://laravel.com/docs/sanctum)を参照してください。
 :::
 
+## APIサポートの有効化
+
+アプリケーションでサードパーティへAPIを提供する場合、JetstreamのAPI機能を有効にしてください。そのためには、`config/jetstream.php`設定ファイルの`features`設定オプションにある関連するエントリのコメントを外します。
+
+```php
+'features' => [
+    Features::profilePhotos(),
+    Features::api(),
+    Features::teams(),
+],
+```
+
 ## パーミッションの定義
 
 APIトークンで使用できるパーミッションは、アプリケーションの`JetstreamServiceProvider`で、`Jetstream::permissions`を使用し定義します。パーミッションは単なる文字列です。定義できたら、APIトークンへ割り付けます。
@@ -45,15 +57,3 @@ $request->user()->tokenCan('read');
 ユーザーが`routes/web.php`ファイル中のルートへリクエストを送ると、そのリクエストは通常クッキーベースの`web`ガートを通じてSanctumにより認証されます。このシナリオではアプリケーションのUIを通じ、ユーザーがファーストパーティリクエストを作成するため、`tokenCan`メソッドは常に`true`を返します。
 
 最初、この振る舞いは奇妙に思えるでしょう。しかし、APIトークンが利用可能であり、 `tokenCan`メソッドにより調べられると常に想定できるため便利です。つまり、アプリケーションの承認ポリシー内ではリクエストにトークンが関連付けられていないことを心配せず、常にこのメソッドを呼び出すことができます。
-
-## APIサポートの無効化
-
-アプリケーションでサードパーティへAPIを提供しない場合は、JetstreamのAPI機能を完全に無効にできます。そのためには、`config/jetstream.php`設定ファイルの`features`設定オプションの中にある関連するエントリをコメントアウトしてください。
-
-```php
-'features' => [
-    Features::profilePhotos(),
-    // Features::api(),
-    Features::teams(),
-],
-```

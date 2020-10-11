@@ -4,8 +4,8 @@ cd official-doc
 
 git pull
 
-cp 1.x/*md ../original-en/1.0
-cp 1.x/features/*md ../original-en/1.0
-cp 1.x/stacks/*md ../original-en/1.0
+cp 1.x/*md ../original-en/
+cp 1.x/features/*md ../original-en/
+cp 1.x/stacks/*md ../original-en/
 
 cd ..
