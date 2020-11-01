@@ -6,7 +6,7 @@
 
 Jetstreamはファーストパーティとして[Laravel Sanctum](https://laravel.com/docs/sanctum)を統合しています。Laravel SanctumはSPA(single page applications)モバイルアプリケーションのための軽い認証システムであり、シンプルなトークンベースのAPIです。Sanctumによりアプリケーションの各ユーザーは複数のAPIトークンを生成することができます。どのアクションの実行を許可するのかを指定するアビリティ／パーミッションをトークンへ付加できます。
 
-![Screenshot of Laravel Jetstream API](./../../assets/img/api.png)
+![Screenshot of Laravel Jetstream API](/img/api.png)
 
 デフォルトではAPIトークン生成パネルは、ユーザープロフィールドロップダウンメニューの右上にある"API"リンクからアクセスします。このスクリーンでユーザーは様々なパーミッションを持つSanctum APIトークンを生成できます。
 

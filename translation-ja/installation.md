@@ -16,6 +16,11 @@ LaravelインストーラでJetstreamをインストールしたら、データ�
 php artisan migrate
 ```
 
+:::danger 既存プロジェクト
+
+Jetstreamは、**真新しい** Laravelプロジェクトにのみインストールすることを目的としています。既存のプロジェクトをJetstreamに移行しようとしないでください。
+:::
+
 ### Composerによるインストール
 
 もしくは、新しいLaravelプロジェクトへJetstreamをインストールするために、Composerを使う方法もあります。

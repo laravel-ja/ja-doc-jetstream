@@ -6,7 +6,7 @@
 
 Laravel Jetstreamのプロフィール管理機能はユーザーが右上のユーザープロフィールナビのドロップダウンメニューを使いアクセスします。Jetstreamのスカフォールドするビュートアクションは、名前、メールアドレス、その他のオプション、プロフィール写真を更新できるように用意しています。
 
-![Screenshot of Profile Management](./../../assets/img/profile-management.png)
+![Screenshot of Profile Management](/img/profile-management.png)
 
 ## ビュー／ページ
 

@@ -16,6 +16,11 @@ After installing Jetstream via the Laravel Installer, you should migrate your da
 php artisan migrate
 ```
 
+:::danger Existing Projects
+
+Jetstream is only meant to be installed on **new** Laravel projects. You should not attempt to migrate an existing project to Jetstream.
+:::
+
 ### Composer Installation
 
 Alternatively, you may use Composer to install Jetstream into your new Laravel project:

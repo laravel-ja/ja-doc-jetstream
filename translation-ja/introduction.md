@@ -8,7 +8,7 @@ Laravel （ジェットストリーム：ジェット気流）は、Laravelの�
 
 JetstreamはTailwind CSSを使用しデザインしており、[Livewire](./stacks/livewire.md)か[Inertia](./stacks/inertia.md)の使用を選択していただけます。
 
-![Screenshot of Laravel Jetstream](./../assets/img/preview.png)
+![Laravel Jetstreamのスクリーンショット](/img/preview-2.png)
 
 ## 利用可能スタック
 

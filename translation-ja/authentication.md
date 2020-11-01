@@ -6,7 +6,7 @@
 
 Laravel Jetstreamはログイン、２要素認証ログイン、ユーザー登録、パスワードリセット、メール確認ビューをプロジェクトへ自動的にスカフォールドします。**簡単にするために、スタックの選択にかかわらずこれらのテンプレートはBladeで書かれており、JavaScriptフレームワークは使用していません。**
 
-![Screenshot of Authentication](./../../assets/img/authentication.png)
+![Screenshot of Authentication](/img/authentication.png)
 
 ## Laravel Fortify
 
