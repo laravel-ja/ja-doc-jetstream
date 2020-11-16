@@ -4,42 +4,27 @@
 
 ## Jetstreamのインストール
 
-[Laravelインストーラ](https://laravel.com/docs/installation#installing-laravel)を使用している場合は、`--jet`オプションを付けて、Jetstreamで動作するLaravelアプリケーションを生成できます。
-
-```bash
-laravel new project-name --jet
-```
-
-LaravelインストーラでJetstreamをインストールしたら、データベースをマイグレートしてください。
-
-```bash
-php artisan migrate
-```
-
-:::danger 既存プロジェクト
-
-Jetstreamは、**真新しい** Laravelプロジェクトにのみインストールすることを目的としています。既存のプロジェクトをJetstreamに移行しようとしないでください。
-:::
-
-### Composerによるインストール
-
-もしくは、新しいLaravelプロジェクトへJetstreamをインストールするために、Composerを使う方法もあります。
+Composerを使用して、Jetstreamを新しいLaravelプロジェクトにインストールできます。
 
 ```bash
 composer require laravel/jetstream
 ```
 
-Composerを使用するインストールを選んだ場合は、`jetstream:install`　Artisanコマンドを実行してください。このコマンドは好みのスタック名を引数で指定します。（livewireかinertia）Jetstreamプロジェクトを開始する前に[Livewire](https://laravel-livewire.com)か[Inertia](https://inertiajs.com)のドキュメント全体を読んでおくことを強くおすすめします。付け加えて、チームサポートを有効にする場合は、`--teams`スイッチを使ってください。
+Jetstreamパッケージをインストールした後、`jetstream：install` Artisanコマンドを実行する必要があります。このコマンドでは、好みのスタックの名前（livewireかinertia）を引数で指定します。Jetstreamプロジェクトを開始する前に、[Livewire](https://laravel-livewire.com)、または[Inertia](https://inertiajs.com)のドキュメント全体を読むことを強く推奨します。また、`--teams`スイッチを使用して、チームサポートを有効にできます。
 
 #### Livewireと同時にJetstreamをインストール
 
 ```bash
+php artisan jetstream:install livewire
+
 php artisan jetstream:install livewire --teams
 ```
 
 #### Inertiaと同時にJetstreamをインストール
 
 ```bash
+php artisan jetstream:install inertia
+
 php artisan jetstream:install inertia --teams
 ```
 
