@@ -34,6 +34,12 @@ Jetstreamの典型的な機能として、ユーザープロフィール更新�
 ],
 ```
 
+加えて、`storage：link` Artisanコマンドを実行する必要があります。このコマンドの詳細は、[Laravelファイルシステムのドキュメント](/laravel/8.x/ja/filesystem.html)を参照してください。
+
+```bash
+php artisan storage:link
+```
+
 ### プロフィール写真の管理
 
 Jetstreamはデフォルトで、ユーザーのカスタムプロフィール写真のアップロードが可能です。この機能はJetstreamのインストール時に`App\Models\User`クラスへ自動的に追加した、`Laravel\Jetstream\HasProfilePhoto`トレイトがサポートしています。
